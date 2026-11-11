@@ -24,12 +24,24 @@ h1,h2,h3{line-height:1.2}
 #bar{position:fixed;top:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--wine),var(--glow));transform-origin:left;transform:scaleX(0);z-index:100}
 #cur{position:fixed;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(179,23,63,.18),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);z-index:0;left:-999px;top:-999px}
 /* nav */
-.links{display:flex;gap:28px;font-size:.95rem;color:var(--mut)}
-.links a{transition:.3s;position:relative}.links a:hover{color:#fff}
-.links a:after{content:"";position:absolute;bottom:-4px;inset-inline-start:0;width:0;height:2px;background:var(--glow);transition:.3s}.links a:hover:after{width:100%}
-.lang{border:1px solid var(--wine2);background:transparent;color:#fff;padding:7px 16px;border-radius:30px;cursor:pointer;font:inherit;font-size:.85rem;transition:.3s}
-.lang:hover{background:var(--wine)}
-@media(max-width:800px){.links{display:none}nav .logo span{display:none}.navin{padding:0 8px 0 10px}}
+nav{position:fixed;top:16px;inset-inline:0;z-index:90;padding:0 16px;transition:.4s}
+.navin{max-width:1080px;margin:auto;height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding-inline:26px 10px;border-radius:20px;background:linear-gradient(180deg,rgba(24,16,19,.72),rgba(12,8,10,.72));border:1px solid rgba(255,255,255,.09);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 18px 50px rgba(0,0,0,.45);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);transition:.4s}
+nav.sm{top:10px}
+nav.sm .navin{background:rgba(9,6,7,.93);border-color:rgba(179,23,63,.35)}
+.logo{font-weight:800;font-size:1.25rem;direction:ltr;white-space:nowrap}.logo span{color:var(--glow)}
+.links{display:flex;gap:4px;font-size:.92rem;color:var(--mut);padding:5px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid var(--bd)}
+.links a{padding:7px 16px;border-radius:10px;transition:.3s}
+.links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.links a.act{color:#fff;background:linear-gradient(135deg,rgba(122,18,48,.95),rgba(179,23,63,.8));box-shadow:0 4px 16px rgba(179,23,63,.35)}
+.nr{display:flex;align-items:center;gap:10px}
+.lang{display:flex;padding:3px;border-radius:12px;border:1px solid var(--bd);background:rgba(255,255,255,.04);cursor:pointer;font:inherit;color:inherit}
+.lang span{padding:5px 12px;border-radius:9px;font-size:.78rem;font-weight:600;color:var(--mut);transition:.3s}
+.lang[data-l=ar] span:first-child,.lang[data-l=en] span:last-child{background:linear-gradient(135deg,var(--wine),var(--wine2));color:#fff}
+.hire{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:12px;font-size:.88rem;font-weight:600;background:#fff;color:#0a0708;transition:.3s}
+.hire:hover{background:var(--glow);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(224,33,79,.45)}
+.hire .ic{width:16px;height:16px}
+@media(max-width:900px){.links{display:none}.navin{padding-inline:18px 8px}}
+@media(max-width:480px){.hire span{display:none}.hire{padding:10px 12px}}
 /* hero */
 #home{min-height:100vh;display:flex;align-items:center;padding-top:110px;overflow:hidden}
 .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:float 12s ease-in-out infinite;z-index:0}
@@ -38,12 +50,14 @@ h1,h2,h3{line-height:1.2}
 @keyframes float{50%{transform:translate(40px,-50px) scale(1.15)}}
 .grid{position:absolute;inset:0;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(circle at 50% 40%,#000,transparent 70%);-webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 70%)}
 .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;position:relative;z-index:2}
-@media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.hero .btns,.hero .stats,.hero .badges{justify-content:center}.photo{order:-1}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.hero .btns,.hero .stats,.hero .badges,.hero .eyebrow{justify-content:center}.photo{order:-1}}
 .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--wine2);padding:6px 16px;border-radius:30px;font-size:.85rem;color:#f3b3c4;background:rgba(122,18,48,.2)}
 .badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
 .badge i{width:8px;height:8px;border-radius:50%;background:#2ee66b;animation:pulse 1.6s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,230,107,.6)}100%{box-shadow:0 0 0 12px transparent}}
-h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:800;margin-bottom:14px}
+h1{font-size:clamp(1.9rem,4.6vw,3.5rem);font-weight:800;margin-bottom:12px;white-space:nowrap}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--mut);font-weight:600;font-size:1.05rem;margin-bottom:6px}
+.eyebrow:before{content:"";width:36px;height:2px;background:var(--glow)}
 .typed{font-size:clamp(1.1rem,2.4vw,1.6rem);color:var(--glow);font-weight:600;min-height:2.2rem}
 .typed:after{content:"|";animation:blink 1s infinite;margin-inline-start:2px}
 @keyframes blink{50%{opacity:0}}
@@ -58,8 +72,12 @@ h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:800;margin-bottom:14px}
 .stats{display:flex;gap:36px;margin-top:44px}
 .stats b{font-size:2rem;color:#fff;display:block;font-weight:800}.stats span{color:var(--mut);font-size:.85rem}
 /* photo */
-.photo{position:relative;width:min(380px,80%);aspect-ratio:1;margin:auto}
-.photo:before{content:"";position:absolute;inset:-14px;border-radius:50%;background:conic-gradient(var(--wine),var(--glow),#000,var(--wine));animation:spin 8s linear infinite;filter:blur(2px)}
+.photo{position:relative;width:min(380px,80%);aspect-ratio:1;margin:auto;isolation:isolate}
+.photo:before{content:"";position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(var(--wine),var(--glow),#1a0710,var(--wine));animation:spin 8s linear infinite}
+.photo .glow{position:absolute;inset:-34px;border-radius:50%;background:radial-gradient(circle,rgba(179,23,63,.4),transparent 65%);filter:blur(24px);z-index:-1;animation:pg 4s ease-in-out infinite}
+@keyframes pg{50%{opacity:.5;transform:scale(1.08)}}
+.orbit{position:absolute;inset:-30px;border-radius:50%;border:1px dashed rgba(224,33,79,.4);animation:spin 24s linear infinite reverse}
+.orbit i{position:absolute;top:-6px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--glow);box-shadow:0 0 16px 4px rgba(224,33,79,.7)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .frame{position:absolute;inset:0;border-radius:50%;background:var(--bg2);overflow:hidden;border:6px solid var(--bg);display:grid;place-items:center}
 .frame img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2}
@@ -101,16 +119,6 @@ h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:800;margin-bottom:14px}
 .tags span{font-size:.75rem;padding:4px 12px;border-radius:20px;background:rgba(179,23,63,.15);color:#f3b3c4}
 .pb a{color:var(--glow);font-weight:600;font-size:.9rem}.pb a:hover{text-decoration:underline}
 /* contact */
-/* nav */
-nav{position:fixed;top:14px;inset-inline:0;z-index:90;padding:0 16px}
-.navin{max-width:1100px;margin:auto;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 10px 0 22px;border-radius:60px;background:rgba(15,11,12,.55);border:1px solid var(--bd);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:.4s}
-nav.sm .navin{background:rgba(10,7,8,.9);box-shadow:0 10px 40px rgba(0,0,0,.5),0 0 0 1px rgba(179,23,63,.3)}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800}
-.logo b{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--wine),var(--glow));font-size:1.05rem}
-.nr{display:flex;align-items:center;gap:10px}
-.hire{background:linear-gradient(135deg,var(--wine),var(--wine2));padding:9px 20px;border-radius:30px;font-size:.88rem;font-weight:600;transition:.3s}
-.hire:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(224,33,79,.45)}
-.links a.act{color:#fff}.links a.act:after{width:100%}
 /* contact */
 .cta{position:relative;border-radius:30px;overflow:hidden;padding:2px;background:#1a0710}
 .cta:before{content:"";position:absolute;inset:-100%;background:conic-gradient(from 0deg,transparent 0 60%,var(--glow) 80%,transparent);animation:spin 6s linear infinite}
@@ -157,11 +165,11 @@ footer p{color:var(--mut);margin-top:14px;max-width:320px;font-size:.93rem}
 <div id="bar"></div><div id="cur"></div>
 
 <nav><div class="navin">
-  <a href="#home" class="logo"><b>A</b><span>Ahmed Abdelhafez</span></a>
+  <a href="#home" class="logo">&lt;<span>Ahmed</span>Abdelhafez/&gt;</a>
   <div class="links">
     <a href="#home" data-i="n1"></a><a href="#services" data-i="n2"></a><a href="#skills" data-i="n3"></a><a href="#work" data-i="n4"></a><a href="#contact" data-i="n5"></a>
   </div>
-  <div class="nr"><button class="lang" id="lang">EN</button><a class="hire" href="https://wa.me/201003947240" target="_blank" rel="noopener" data-i="hire"></a></div>
+  <div class="nr"><button class="lang" id="lang" data-l="ar" aria-label="Language"><span>ع</span><span>EN</span></button><a class="hire" href="https://wa.me/201003947240" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5z"/><path d="M9 9.5c.3 2 2.5 4.2 4.5 4.5l1.2-1.3-1.8-1-.8.6c-.7-.3-1.4-1-1.7-1.7l.6-.8-1-1.8z"/></svg><span data-i="hire"></span></a></div>
 </div></nav>
 
 <section id="home">
@@ -169,7 +177,8 @@ footer p{color:var(--mut);margin-top:14px;max-width:320px;font-size:.93rem}
   <div class="wrap hero">
     <div>
       <div class="badges rv"><div class="badge"><i></i><span data-i="avail"></span></div><div class="badge"><span data-i="edu"></span></div></div>
-      <h1 class="rv d1"><span data-i="hi"></span> <span class="grad" data-i="name"></span></h1>
+      <div class="eyebrow rv d1" data-i="hi"></div>
+      <h1 class="grad rv d1" data-i="name"></h1>
       <div class="typed rv d2" id="typed"></div>
       <p class="lead rv d2" data-i="lead"></p>
       <div class="btns rv d3">
@@ -183,9 +192,10 @@ footer p{color:var(--mut);margin-top:14px;max-width:320px;font-size:.93rem}
       </div>
     </div>
     <div class="photo rv d2">
+      <div class="glow"></div><div class="orbit"><i></i></div>
       <div class="frame">
-        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>assetsme.jpg</div>
-        <img src="assetsme.jpg" alt="Profile photo" onerror="this.style.display='none'">
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>assetsme.png</div>
+        <img src="assetsme.png" alt="Profile photo" onerror="this.style.display='none'">
       </div>
     </div>
   </div>
@@ -234,7 +244,7 @@ footer p{color:var(--mut);margin-top:14px;max-width:320px;font-size:.93rem}
 
 <footer><div class="wrap">
   <div class="fgrid">
-    <div><a href="#home" class="logo"><b>A</b><span>Ahmed Abdelhafez</span></a><p data-i="ftag"></p></div>
+    <div><a href="#home" class="logo">&lt;<span>Ahmed</span>Abdelhafez/&gt;</a><p data-i="ftag"></p></div>
     <div class="fcol"><h4 data-i="fq"></h4><a href="#home" data-i="n1"></a><a href="#services" data-i="n2"></a><a href="#skills" data-i="n3"></a><a href="#work" data-i="n4"></a></div>
     <div class="fcol"><h4 data-i="fc"></h4><a href="https://wa.me/201003947240" target="_blank" rel="noopener" dir="ltr">+20 100 394 7240</a><a href="mailto:a7medabdelhafez2008@email.com" dir="ltr">a7medabdelhafez2008@email.com</a><a href="https://github.com/USERNAME" target="_blank" rel="noopener">GitHub</a></div>
   </div>
@@ -286,7 +296,7 @@ function apply(){
   document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";
   document.querySelectorAll("[data-i]").forEach(e=>e.textContent=L[e.dataset.i]);
   document.querySelectorAll("[data-p]").forEach(e=>{const[i,j]=e.dataset.p.split("");e.textContent=L.p[i][j]});
-  $("#lang").textContent=lang==="ar"?"EN":"عربي";
+  $("#lang").dataset.l=lang;
   localStorage.setItem("lang",lang);type();observe();
 }
 function type(){
