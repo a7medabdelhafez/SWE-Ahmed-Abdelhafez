@@ -24,15 +24,12 @@ h1,h2,h3{line-height:1.2}
 #bar{position:fixed;top:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--wine),var(--glow));transform-origin:left;transform:scaleX(0);z-index:100}
 #cur{position:fixed;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(179,23,63,.18),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);z-index:0;left:-999px;top:-999px}
 /* nav */
-nav{position:fixed;top:0;inset-inline:0;z-index:90;backdrop-filter:blur(14px);background:rgba(7,7,7,.65);border-bottom:1px solid var(--bd)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{font-weight:800;font-size:1.3rem}.logo span{color:var(--glow)}
 .links{display:flex;gap:28px;font-size:.95rem;color:var(--mut)}
 .links a{transition:.3s;position:relative}.links a:hover{color:#fff}
 .links a:after{content:"";position:absolute;bottom:-4px;inset-inline-start:0;width:0;height:2px;background:var(--glow);transition:.3s}.links a:hover:after{width:100%}
 .lang{border:1px solid var(--wine2);background:transparent;color:#fff;padding:7px 16px;border-radius:30px;cursor:pointer;font:inherit;font-size:.85rem;transition:.3s}
 .lang:hover{background:var(--wine)}
-@media(max-width:800px){.links{display:none}}
+@media(max-width:800px){.links{display:none}nav .logo span{display:none}.navin{padding:0 8px 0 10px}}
 /* hero */
 #home{min-height:100vh;display:flex;align-items:center;padding-top:110px;overflow:hidden}
 .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:float 12s ease-in-out infinite;z-index:0}
@@ -41,8 +38,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 @keyframes float{50%{transform:translate(40px,-50px) scale(1.15)}}
 .grid{position:absolute;inset:0;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(circle at 50% 40%,#000,transparent 70%);-webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 70%)}
 .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;position:relative;z-index:2}
-@media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.hero .btns,.hero .stats{justify-content:center}.photo{order:-1}}
-.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--wine2);padding:6px 16px;border-radius:30px;font-size:.85rem;color:#f3b3c4;background:rgba(122,18,48,.2);margin-bottom:22px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}.hero .btns,.hero .stats,.hero .badges{justify-content:center}.photo{order:-1}}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--wine2);padding:6px 16px;border-radius:30px;font-size:.85rem;color:#f3b3c4;background:rgba(122,18,48,.2)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
 .badge i{width:8px;height:8px;border-radius:50%;background:#2ee66b;animation:pulse 1.6s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,230,107,.6)}100%{box-shadow:0 0 0 12px transparent}}
 h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:800;margin-bottom:14px}
@@ -78,7 +76,7 @@ h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:800;margin-bottom:14px}
 .track span:hover{color:var(--glow)}.track span{transition:.3s;white-space:nowrap}
 @keyframes mq{to{transform:translateX(-50%)}}
 /* cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:32px;transition:.4s;position:relative;overflow:hidden;transform-style:preserve-3d}
 .card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,0%),rgba(179,23,63,.25),transparent 55%);opacity:0;transition:.4s}
 .card:hover:before{opacity:1}.card:hover{border-color:var(--wine2)}
@@ -103,11 +101,51 @@ h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:800;margin-bottom:14px}
 .tags span{font-size:.75rem;padding:4px 12px;border-radius:20px;background:rgba(179,23,63,.15);color:#f3b3c4}
 .pb a{color:var(--glow);font-weight:600;font-size:.9rem}.pb a:hover{text-decoration:underline}
 /* contact */
-.cta{background:linear-gradient(135deg,#1a0710,var(--wine) 180%);border:1px solid var(--wine2);border-radius:28px;padding:64px 30px;text-align:center;position:relative;overflow:hidden}
-.cta h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:12px}.cta p{color:#e6c6cf;margin-bottom:30px}
-.soc{display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap}
-.soc a{padding:10px 22px;border:1px solid rgba(255,255,255,.2);border-radius:30px;font-size:.9rem;transition:.3s}.soc a:hover{background:#fff;color:#000}
-footer{text-align:center;color:var(--mut);padding:30px;font-size:.85rem;border-top:1px solid var(--bd)}
+/* nav */
+nav{position:fixed;top:14px;inset-inline:0;z-index:90;padding:0 16px}
+.navin{max-width:1100px;margin:auto;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 10px 0 22px;border-radius:60px;background:rgba(15,11,12,.55);border:1px solid var(--bd);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:.4s}
+nav.sm .navin{background:rgba(10,7,8,.9);box-shadow:0 10px 40px rgba(0,0,0,.5),0 0 0 1px rgba(179,23,63,.3)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800}
+.logo b{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--wine),var(--glow));font-size:1.05rem}
+.nr{display:flex;align-items:center;gap:10px}
+.hire{background:linear-gradient(135deg,var(--wine),var(--wine2));padding:9px 20px;border-radius:30px;font-size:.88rem;font-weight:600;transition:.3s}
+.hire:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(224,33,79,.45)}
+.links a.act{color:#fff}.links a.act:after{width:100%}
+/* contact */
+.cta{position:relative;border-radius:30px;overflow:hidden;padding:2px;background:#1a0710}
+.cta:before{content:"";position:absolute;inset:-100%;background:conic-gradient(from 0deg,transparent 0 60%,var(--glow) 80%,transparent);animation:spin 6s linear infinite}
+.ci{position:relative;border-radius:28px;background:radial-gradient(circle at 50% 0,#2a0b16,#0d0709 70%);padding:76px 30px;text-align:center;overflow:hidden}
+.ci .o{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;animation:float 10s ease-in-out infinite}
+.o1{width:260px;height:260px;background:var(--wine);top:-80px;inset-inline-start:-60px}
+.o2{width:220px;height:220px;background:var(--wine2);bottom:-80px;inset-inline-end:-40px;animation-delay:-4s}
+.ci>*{position:relative}
+.ci h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:12px;font-weight:800}
+.ci p{color:#d9bcc6;max-width:480px;margin:0 auto 36px}
+.cbtns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:center}
+.cbtns .btn{display:inline-flex;align-items:center;gap:10px}
+.wawrap{position:relative;border-radius:12px;display:inline-block}
+.wawrap:after{content:"";position:absolute;inset:0;border-radius:12px;border:2px solid var(--glow);animation:ring 2s infinite;pointer-events:none}
+@keyframes ring{to{transform:scale(1.2,1.45);opacity:0}}
+.wa{position:relative;overflow:hidden}
+.wa:before{content:"";position:absolute;top:0;left:0;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 3s infinite}
+@keyframes shine{0%{transform:translateX(-200%) skewX(-20deg)}60%,100%{transform:translateX(450%) skewX(-20deg)}}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.soc{display:flex;gap:12px;justify-content:center;margin-top:38px}
+.soc a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);transition:.35s}
+.soc a:hover{background:var(--glow);border-color:var(--glow);transform:translateY(-6px) rotate(8deg);box-shadow:0 10px 24px rgba(224,33,79,.5)}
+/* footer */
+footer{border-top:1px solid var(--bd);background:linear-gradient(#0a0708,#050404);position:relative;padding:70px 0 26px;margin-top:40px}
+footer:before{content:"";position:absolute;top:-1px;left:25%;width:50%;height:1px;background:linear-gradient(90deg,transparent,var(--glow),transparent)}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+footer h4{margin-bottom:16px;font-size:1rem}
+footer p{color:var(--mut);margin-top:14px;max-width:320px;font-size:.93rem}
+.fcol a{display:block;color:var(--mut);margin-bottom:8px;font-size:.93rem;transition:.3s}
+.fcol a:hover{color:var(--glow);padding-inline-start:8px}
+.fbot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:50px;padding-top:22px;border-top:1px solid var(--bd);color:var(--mut);font-size:.85rem}
+#top{width:42px;height:42px;border-radius:50%;border:1px solid var(--wine2);background:transparent;color:#fff;cursor:pointer;font-size:1.1rem;transition:.3s;animation:bob2 2.5s ease-in-out infinite}
+#top:hover{background:var(--wine2)}
+@keyframes bob2{50%{transform:translateY(-5px)}}
+@media(max-width:800px){.fgrid{grid-template-columns:1fr;text-align:center}.fgrid p{margin-inline:auto}.fgrid .logo{justify-content:center}.fbot{flex-direction:column;text-align:center}}
 /* reveal */
 .rv{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
 .rv.in{opacity:1;transform:none}
@@ -118,19 +156,19 @@ footer{text-align:center;color:var(--mut);padding:30px;font-size:.85rem;border-t
 <body>
 <div id="bar"></div><div id="cur"></div>
 
-<nav><div class="wrap">
-  <a href="#home" class="logo">&lt;<span>Ahmed</span>Abdelhafez/&gt;</a>
+<nav><div class="navin">
+  <a href="#home" class="logo"><b>A</b><span>Ahmed Abdelhafez</span></a>
   <div class="links">
     <a href="#home" data-i="n1"></a><a href="#services" data-i="n2"></a><a href="#skills" data-i="n3"></a><a href="#work" data-i="n4"></a><a href="#contact" data-i="n5"></a>
   </div>
-  <button class="lang" id="lang">EN</button>
+  <div class="nr"><button class="lang" id="lang">EN</button><a class="hire" href="https://wa.me/201003947240" target="_blank" rel="noopener" data-i="hire"></a></div>
 </div></nav>
 
 <section id="home">
   <div class="blob b1"></div><div class="blob b2"></div><div class="grid"></div>
   <div class="wrap hero">
     <div>
-      <div class="badge rv"><i></i><span data-i="avail"></span></div>
+      <div class="badges rv"><div class="badge"><i></i><span data-i="avail"></span></div><div class="badge"><span data-i="edu"></span></div></div>
       <h1 class="rv d1"><span data-i="hi"></span> <span class="grad" data-i="name"></span></h1>
       <div class="typed rv d2" id="typed"></div>
       <p class="lead rv d2" data-i="lead"></p>
@@ -146,8 +184,8 @@ footer{text-align:center;color:var(--mut);padding:30px;font-size:.85rem;border-t
     </div>
     <div class="photo rv d2">
       <div class="frame">
-        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>assetsme.png</div>
-        <img src="assetsme.png" alt="Profile photo" onerror="this.style.display='none'">
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>assetsme.jpg</div>
+        <img src="assetsme.jpg" alt="Profile photo" onerror="this.style.display='none'">
       </div>
     </div>
   </div>
@@ -162,6 +200,8 @@ footer{text-align:center;color:var(--mut);padding:30px;font-size:.85rem;border-t
     <div class="card rv d1"><div class="ico">🧩</div><h3 data-i="c2t"></h3><p data-i="c2p"></p></div>
     <div class="card rv d2"><div class="ico">🛒</div><h3 data-i="c3t"></h3><p data-i="c3p"></p></div>
     <div class="card rv d3"><div class="ico">🚀</div><h3 data-i="c4t"></h3><p data-i="c4p"></p></div>
+    <div class="card rv d1"><div class="ico">🎨</div><h3 data-i="c5t"></h3><p data-i="c5p"></p></div>
+    <div class="card rv d2"><div class="ico">✨</div><h3 data-i="c6t"></h3><p data-i="c6p"></p></div>
   </div>
 </div></section>
 
@@ -176,49 +216,61 @@ footer{text-align:center;color:var(--mut);padding:30px;font-size:.85rem;border-t
 </div></section>
 
 <section id="contact"><div class="wrap">
-  <div class="cta rv">
+  <div class="cta rv"><div class="ci">
+    <div class="o o1"></div><div class="o o2"></div>
     <h2 data-i="ct"></h2><p data-i="cp"></p>
-    <a class="btn p" href="mailto:a7medabdelhafez2008@email.com" data-i="cb"></a>
-    <div class="soc">
-      <a href="https://github.com/USERNAME" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/USERNAME" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://wa.me/201003947240" target="_blank" rel="noopener">WhatsApp</a>
+    <div class="cbtns">
+      <span class="wawrap"><a class="btn p wa" href="https://wa.me/201003947240" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5z"/><path d="M9 9.5c.3 2 2.5 4.2 4.5 4.5l1.2-1.3-1.8-1-.8.6c-.7-.3-1.4-1-1.7-1.7l.6-.8-1-1.8z"/></svg><span data-i="wa"></span></a></span>
+      <a class="btn s" href="mailto:a7medabdelhafez2008@email.com"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-i="cb"></span></a>
     </div>
-  </div>
+    <div class="soc">
+      <a href="https://wa.me/201003947240" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5z"/><path d="M9 9.5c.3 2 2.5 4.2 4.5 4.5l1.2-1.3-1.8-1-.8.6c-.7-.3-1.4-1-1.7-1.7l.6-.8-1-1.8z"/></svg></a>
+      <a href="https://github.com/USERNAME" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+      <a href="https://linkedin.com/in/USERNAME" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="mailto:a7medabdelhafez2008@email.com" aria-label="Email"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+    </div>
+  </div></div>
 </div></section>
 
-<footer>© <span id="yr"></span> Ahmed Abdelhafez — <span data-i="ft"></span></footer>
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><a href="#home" class="logo"><b>A</b><span>Ahmed Abdelhafez</span></a><p data-i="ftag"></p></div>
+    <div class="fcol"><h4 data-i="fq"></h4><a href="#home" data-i="n1"></a><a href="#services" data-i="n2"></a><a href="#skills" data-i="n3"></a><a href="#work" data-i="n4"></a></div>
+    <div class="fcol"><h4 data-i="fc"></h4><a href="https://wa.me/201003947240" target="_blank" rel="noopener" dir="ltr">+20 100 394 7240</a><a href="mailto:a7medabdelhafez2008@email.com" dir="ltr">a7medabdelhafez2008@email.com</a><a href="https://github.com/USERNAME" target="_blank" rel="noopener">GitHub</a></div>
+  </div>
+  <div class="fbot"><span>© <span id="yr"></span> Ahmed Abdelhafez · <span data-i="ft"></span></span><button id="top" aria-label="Top">↑</button></div>
+</div></footer>
 
 <script>
 const T={
-ar:{n1:"الرئيسية",n2:"خدماتي",n3:"مهاراتي",n4:"أعمالي",n5:"تواصل معي",avail:"متاح لمشاريع جديدة",hi:"أهلاً، أنا",name:"أحمد عبد الحافظ",
-lead:"مهندس برمجيات بخبرة سنتين في تطوير المواقع وووردبريس. بحوّل أفكارك لمواقع سريعة وأنيقة وسهلة الإدارة.",
+ar:{n1:"الرئيسية",n2:"خدماتي",n3:"مهاراتي",n4:"أعمالي",n5:"تواصل معي",avail:"متاح لمشاريع جديدة",edu:"🎓 طالب تكنولوجيا معلومات",hire:"كلمني",hi:"أهلاً، أنا",name:"أحمد عبد الحافظ",
+lead:"طالب تكنولوجيا معلومات ومهندس برمجيات بخبرة سنتين في تطوير المواقع وووردبريس، وعندي خبرة في الجرافيك ديزاين. بحوّل أفكارك لمواقع سريعة وأنيقة وسهلة الإدارة.",
 b1:"شاهد أعمالي",b2:"كلمني دلوقتي",s1:"سنين خبرة",s2:"مشروع منفّذ",s3:"التزام بالمواعيد",
 t1:"أقدر أعملك إيه؟",t1p:"حلول ويب متكاملة من التصميم للإطلاق.",
 c1t:"تطوير مواقع",c1p:"مواقع حديثة متجاوبة بـ HTML وCSS وJavaScript بأداء عالي.",
 c2t:"قوالب وإضافات ووردبريس",c2p:"تخصيص كامل للقوالب وبرمجة إضافات حسب احتياجك.",
 c3t:"متاجر إلكترونية",c3p:"متاجر WooCommerce جاهزة للبيع مع بوابات دفع وشحن.",
-c4t:"تسريع وتحسين SEO",c4p:"تحسين السرعة والأمان ومحركات البحث لنتائج أفضل.",
+c4t:"تسريع وتحسين SEO",c4p:"تحسين السرعة والأمان ومحركات البحث لنتائج أفضل.",c5t:"جرافيك ديزاين",c5p:"لوجوهات وهويات بصرية وتصميمات سوشيال ميديا وبنرات احترافية.",c6t:"تصميم واجهات UI",c6p:"تصاميم واجهات عصرية وسهلة الاستخدام قبل ما تتحول لكود.",
 t2:"التقنيات اللي بشتغل بيها",t3:"سابقة الأعمال",t3p:"مجموعة من المشاريع اللي اشتغلت عليها (استبدلها بمشاريعك).",
-ct:"عندك مشروع في دماغك؟",cp:"خلينا نحوّله لواقع. ابعتلي رسالة وهرد عليك في أقرب وقت.",cb:"ابعتلي إيميل",ft:"صُنع بكل شغف ❤",
+ct:"عندك مشروع في دماغك؟",cp:"خلينا نحوّله لواقع. كلمني على واتساب وهرد عليك في أقرب وقت.",wa:"كلمني على واتساب",cb:"أو ابعتلي إيميل",ft:"صُنع بكل شغف ❤",ftag:"مهندس برمجيات، مطوّر ويب ووردبريس ومصمم جرافيك.",fq:"روابط سريعة",fc:"تواصل معي",
 view:"عرض المشروع ←",
-typed:["مهندس برمجيات","مطوّر ويب","مطوّر WordPress"],
+typed:["مهندس برمجيات","مطوّر ويب","مطوّر WordPress","مصمم جرافيك"],
 p:[["موقع شركة","موقع تعريفي متجاوب مع لوحة تحكم سهلة."],["متجر إلكتروني","متجر WooCommerce مع دفع إلكتروني."],["صفحة هبوط","صفحة تسويقية سريعة بنسبة تحويل عالية."],["قالب مخصص","قالب ووردبريس مبني من الصفر."],["بورتفوليو","موقع شخصي بحركات وتأثيرات."],["إضافة مخصصة","إضافة ووردبريس لحل مشكلة محددة."]]},
-en:{n1:"Home",n2:"Services",n3:"Skills",n4:"Work",n5:"Contact",avail:"Available for new projects",hi:"Hi, I’m",name:"Ahmed Abdelhafez",
-lead:"Software Engineer with 2 years of experience in web and WordPress development. I turn ideas into fast, elegant, easy-to-manage websites.",
+en:{n1:"Home",n2:"Services",n3:"Skills",n4:"Work",n5:"Contact",avail:"Available for new projects",edu:"🎓 IT Student",hire:"Hire me",hi:"Hi, I’m",name:"Ahmed Abdelhafez",
+lead:"IT student and software engineer with 2 years of experience in web and WordPress development, plus hands-on graphic design experience. I turn ideas into fast, elegant, easy-to-manage websites.",
 b1:"View my work",b2:"Let’s talk",s1:"Years experience",s2:"Projects done",s3:"On-time delivery",
 t1:"What can I do for you?",t1p:"End-to-end web solutions, from design to launch.",
 c1t:"Web Development",c1p:"Modern responsive sites with HTML, CSS and JavaScript, built for performance.",
 c2t:"WordPress Themes & Plugins",c2p:"Fully custom themes and plugins tailored to your needs.",
 c3t:"E-commerce Stores",c3p:"WooCommerce stores ready to sell, with payments and shipping.",
-c4t:"Speed & SEO",c4p:"Performance, security and SEO tuning for better results.",
+c4t:"Speed & SEO",c4p:"Performance, security and SEO tuning for better results.",c5t:"Graphic Design",c5p:"Logos, brand identities, social media posts and professional banners.",c6t:"UI Design",c6p:"Modern, user-friendly interface designs before they become code.",
 t2:"Technologies I work with",t3:"Selected Work",t3p:"A collection of projects I’ve built (replace with your own).",
-ct:"Got a project in mind?",cp:"Let’s make it real. Send me a message and I’ll get back to you soon.",cb:"Email me",ft:"Built with passion ❤",
+ct:"Got a project in mind?",cp:"Let’s make it real. Message me on WhatsApp and I’ll get back to you soon.",wa:"Chat on WhatsApp",cb:"Or email me",ft:"Built with passion ❤",ftag:"Software engineer, web & WordPress developer and graphic designer.",fq:"Quick links",fc:"Get in touch",
 view:"View project →",
-typed:["Software Engineer","Web Developer","WordPress Developer"],
+typed:["Software Engineer","Web Developer","WordPress Developer","Graphic Designer"],
 p:[["Company Website","Responsive corporate site with an easy admin."],["Online Store","WooCommerce shop with online payments."],["Landing Page","Fast marketing page built to convert."],["Custom Theme","WordPress theme built from scratch."],["Portfolio","Personal site with rich motion effects."],["Custom Plugin","WordPress plugin solving a specific need."]]}
 };
-const SK=[["WordPress",92],["JavaScript",85],["HTML / CSS",95],["PHP",78],["WooCommerce",88],["Git & GitHub",82]];
+const SK=[["WordPress",92],["JavaScript",85],["HTML / CSS",95],["PHP",78],["WooCommerce",88],["Git & GitHub",82],["Graphic Design",85],["Figma / UI",80]];
 const PI=["🏢","🛍️","📈","🎨","👤","🔌"];
 const PJ=[["https://github.com/USERNAME/project1","WordPress · PHP"],["https://github.com/USERNAME/project2","WooCommerce"],["https://github.com/USERNAME/project3","HTML · CSS · JS"],["https://github.com/USERNAME/project4","Theme · PHP"],["https://github.com/USERNAME/project5","JavaScript"],["https://github.com/USERNAME/project6","Plugin · PHP"]];
 const $=s=>document.querySelector(s);
@@ -226,7 +278,7 @@ let lang=localStorage.getItem("lang")||"ar",tw;
 
 function build(){
   $("#skl").innerHTML=SK.map(([n,v])=>`<div class="sk rv"><div><span>${n}</span><span>${v}%</span></div><div class="tr"><div class="fl" data-w="${v}"></div></div></div>`).join("");
-  $("#track").innerHTML=[..."xx"].map(()=>["WordPress","JavaScript","PHP","WooCommerce","HTML5","CSS3","Elementor","Git","MySQL","REST API"].map(s=>`<span>${s} ✦</span>`).join("")).join("");
+  $("#track").innerHTML=[..."xx"].map(()=>["WordPress","JavaScript","PHP","WooCommerce","HTML5","CSS3","Elementor","Photoshop","Illustrator","Git","MySQL","REST API"].map(s=>`<span>${s} ✦</span>`).join("")).join("");
   $("#wk").innerHTML=PJ.map((p,i)=>`<article class="proj rv d${i%3+1}"><div class="thumb"><em>${PI[i]}</em><img src="assets/project${i+1}.jpg" alt="" onerror="this.remove()"></div><div class="pb"><h3 data-p="${i}0"></h3><p data-p="${i}1"></p><div class="tags">${p[1].split(" · ").map(t=>`<span>${t}</span>`).join("")}</div><a href="${p[0]}" target="_blank" rel="noopener" data-i="view"></a></div></article>`).join("");
 }
 function apply(){
@@ -269,6 +321,10 @@ document.addEventListener("mousemove",e=>{const c=e.target.closest&&e.target.clo
   c.style.setProperty("--x",x+"px");c.style.setProperty("--y",y+"px");
   c.style.transform=`perspective(800px) rotateY(${(x/r.width-.5)*8}deg) rotateX(${-(y/r.height-.5)*8}deg) translateY(-6px)`});
 document.addEventListener("mouseout",e=>{const c=e.target.closest&&e.target.closest(".card");if(c)c.style.transform=""});
+$("#top").onclick=()=>scrollTo({top:0,behavior:"smooth"});
+const secs=[...document.querySelectorAll("section[id]")],ls=[...document.querySelectorAll(".links a")];
+function spy(){let cur="home";secs.forEach(x=>{if(scrollY>=x.offsetTop-220)cur=x.id});ls.forEach(a=>a.classList.toggle("act",a.getAttribute("href")==="#"+cur));$("nav").classList.toggle("sm",scrollY>40)}
+addEventListener("scroll",spy);spy();
 $("#yr").textContent=new Date().getFullYear();
 build();apply();counters();
 </script>
